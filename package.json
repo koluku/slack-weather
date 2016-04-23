@@ -1,0 +1,15 @@
+{
+  "name": "slack-weather",
+  "version": "0.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "koluku",
+  "license": "MIT",
+  "dependencies": {
+    "feedparser": "^1.1.4",
+    "request": "^2.72.0"
+  }
+}
