@@ -1,8 +1,8 @@
 var FeedParser = require('feedparser'),
     request = require('request');
 
-var URL = 'http://rss.weather.yahoo.co.jp/rss/days/2300.xml',
-    Webhook = 'https://hooks.slack.com/services/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';
+var URL = 'XXXXXX',
+    Webhook = 'XXXXXXX';
 
 var req = request(URL),
     feedparser = new FeedParser();
@@ -29,8 +29,7 @@ feedparser.on('readable', function() {
   while (item = stream.read()) {
 
     var data = item.title
-                   .replace(/- Yahoo!天気・災害/g, "")
-                   .replace(/ 渡島地方（函館） /g, "");
+                   .replace(/- Yahoo!天気・災害/g, "");
     weathers.push(data);
   }
 });
