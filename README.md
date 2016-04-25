@@ -1,4 +1,4 @@
-# Test Slack Weather
+# Slack Weather
 
 ![](screenshot.png)
 
