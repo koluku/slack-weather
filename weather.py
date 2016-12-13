@@ -20,7 +20,7 @@ def main():
     weather = json['forecasts'][1]['telop']
     max_temperature = json['forecasts'][1]['temperature']['max']['celsius']
     min_temperature = json['forecasts'][1]['temperature']['min']['celsius']
-    post_to_slack(date + 'の天気予報\n' + weather + '\n最高気温 '  + max_temperature + '℃ / 最低気温 ' + min_temperature + '℃')
+    post_to_slack(date + ' ' + weather + ' '  + max_temperature + '℃ ' + min_temperature + '℃')
 
 if __name__ == '__main__':
     main()
