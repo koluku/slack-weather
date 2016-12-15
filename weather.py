@@ -34,7 +34,7 @@ def post_to_slack(message):
         'text': message,
         'username': bot_name,
     })
-    requests.post(WEBHOOK, data)
+    requests.post(webhook, data)
 
 def main():
     check_variables()
