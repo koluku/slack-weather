@@ -1,3 +1,4 @@
+import datetime
 import json
 import requests
 import sys
@@ -24,15 +25,18 @@ def get_json(url):
 
 def make_message(json):
     date = json['forecasts'][1]['date']
+    date = datetime.datetime.strptime(date, '%Y-%m-%d')
+    date = date.strftime('%m/%d')
     weather = json['forecasts'][1]['telop']
     max_temperature = json['forecasts'][1]['temperature']['max']['celsius']
     min_temperature = json['forecasts'][1]['temperature']['min']['celsius']
-    return '@channel ' + date + ' ' + weather + ' '  + max_temperature + '℃ ' + min_temperature + '℃'
+    return '@channel ' + date + ' ' + weather + ' '  + max_temperature + '℃ / ' + min_temperature + '℃'
 
 def post_to_slack(message):
     data = json.dumps({
         'text': message,
         'username': bot_name,
+        'link_names': 1
     })
     requests.post(webhook, data)
 
